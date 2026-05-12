@@ -2,11 +2,23 @@
 
 import { describe, it, expect, vi } from "vitest";
 import { createPresignedUploadURL } from "../presign";
+import type { PutObjectCommandInput } from "@aws-sdk/client-s3";
 
 // Mock AWS SDK modules
 vi.mock("@aws-sdk/client-s3", () => {
+  class MockS3Client {
+    send = vi.fn();
+  }
+
+  const PutObjectCommand = vi.fn().mockImplementation(function (
+    input: PutObjectCommandInput,
+  ) {
+    return input;
+  });
+
   return {
-    PutObjectCommand: vi.fn().mockImplementation((input) => input),
+    S3Client: MockS3Client,
+    PutObjectCommand,
   };
 });
 
