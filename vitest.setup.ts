@@ -3,4 +3,6 @@ import "@testing-library/jest-dom";
 import { expect } from "vitest";
 import matchers from "@testing-library/jest-dom/matchers";
 
-expect.extend(matchers);
+if (typeof window !== "undefined") {
+  expect.extend(matchers);
+}
