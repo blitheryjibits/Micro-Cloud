@@ -27,6 +27,12 @@ enum FileAccessRole {
   VIEWER
 }
 
+enum UploadStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
 enum AuditAction {
   UPLOAD
   DELETE
@@ -90,6 +96,7 @@ model File {
   userId    String
   folderId  String?
   createdAt DateTime @default(now())
+  status    String?  @default("PENDING")
 
   user        User             @relation(fields: [userId], references: [id])
   folder      Folder?          @relation(fields: [folderId], references: [id])
