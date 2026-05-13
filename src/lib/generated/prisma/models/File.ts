@@ -44,6 +44,7 @@ export type FileMinAggregateOutputType = {
   userId: string | null
   folderId: string | null
   createdAt: Date | null
+  status: string | null
 }
 
 export type FileMaxAggregateOutputType = {
@@ -56,6 +57,7 @@ export type FileMaxAggregateOutputType = {
   userId: string | null
   folderId: string | null
   createdAt: Date | null
+  status: string | null
 }
 
 export type FileCountAggregateOutputType = {
@@ -68,6 +70,7 @@ export type FileCountAggregateOutputType = {
   userId: number
   folderId: number
   createdAt: number
+  status: number
   _all: number
 }
 
@@ -90,6 +93,7 @@ export type FileMinAggregateInputType = {
   userId?: true
   folderId?: true
   createdAt?: true
+  status?: true
 }
 
 export type FileMaxAggregateInputType = {
@@ -102,6 +106,7 @@ export type FileMaxAggregateInputType = {
   userId?: true
   folderId?: true
   createdAt?: true
+  status?: true
 }
 
 export type FileCountAggregateInputType = {
@@ -114,6 +119,7 @@ export type FileCountAggregateInputType = {
   userId?: true
   folderId?: true
   createdAt?: true
+  status?: true
   _all?: true
 }
 
@@ -213,6 +219,7 @@ export type FileGroupByOutputType = {
   userId: string
   folderId: string | null
   createdAt: Date
+  status: string | null
   _count: FileCountAggregateOutputType | null
   _avg: FileAvgAggregateOutputType | null
   _sum: FileSumAggregateOutputType | null
@@ -248,6 +255,7 @@ export type FileWhereInput = {
   userId?: Prisma.StringFilter<"File"> | string
   folderId?: Prisma.StringNullableFilter<"File"> | string | null
   createdAt?: Prisma.DateTimeFilter<"File"> | Date | string
+  status?: Prisma.StringNullableFilter<"File"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   folder?: Prisma.XOR<Prisma.FolderNullableScalarRelationFilter, Prisma.FolderWhereInput> | null
   versions?: Prisma.FileVersionListRelationFilter
@@ -266,6 +274,7 @@ export type FileOrderByWithRelationInput = {
   userId?: Prisma.SortOrder
   folderId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  status?: Prisma.SortOrderInput | Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   folder?: Prisma.FolderOrderByWithRelationInput
   versions?: Prisma.FileVersionOrderByRelationAggregateInput
@@ -287,6 +296,7 @@ export type FileWhereUniqueInput = Prisma.AtLeast<{
   userId?: Prisma.StringFilter<"File"> | string
   folderId?: Prisma.StringNullableFilter<"File"> | string | null
   createdAt?: Prisma.DateTimeFilter<"File"> | Date | string
+  status?: Prisma.StringNullableFilter<"File"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   folder?: Prisma.XOR<Prisma.FolderNullableScalarRelationFilter, Prisma.FolderWhereInput> | null
   versions?: Prisma.FileVersionListRelationFilter
@@ -305,6 +315,7 @@ export type FileOrderByWithAggregationInput = {
   userId?: Prisma.SortOrder
   folderId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  status?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.FileCountOrderByAggregateInput
   _avg?: Prisma.FileAvgOrderByAggregateInput
   _max?: Prisma.FileMaxOrderByAggregateInput
@@ -325,6 +336,7 @@ export type FileScalarWhereWithAggregatesInput = {
   userId?: Prisma.StringWithAggregatesFilter<"File"> | string
   folderId?: Prisma.StringNullableWithAggregatesFilter<"File"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"File"> | Date | string
+  status?: Prisma.StringNullableWithAggregatesFilter<"File"> | string | null
 }
 
 export type FileCreateInput = {
@@ -335,6 +347,7 @@ export type FileCreateInput = {
   r2Key: string
   url?: string | null
   createdAt?: Date | string
+  status?: string | null
   user: Prisma.UserCreateNestedOneWithoutFilesInput
   folder?: Prisma.FolderCreateNestedOneWithoutFilesInput
   versions?: Prisma.FileVersionCreateNestedManyWithoutFileInput
@@ -353,6 +366,7 @@ export type FileUncheckedCreateInput = {
   userId: string
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
   versions?: Prisma.FileVersionUncheckedCreateNestedManyWithoutFileInput
   permissions?: Prisma.FilePermissionUncheckedCreateNestedManyWithoutFileInput
   sharedLinks?: Prisma.SharedLinkUncheckedCreateNestedManyWithoutFileInput
@@ -367,6 +381,7 @@ export type FileUpdateInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutFilesNestedInput
   folder?: Prisma.FolderUpdateOneWithoutFilesNestedInput
   versions?: Prisma.FileVersionUpdateManyWithoutFileNestedInput
@@ -385,6 +400,7 @@ export type FileUncheckedUpdateInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   versions?: Prisma.FileVersionUncheckedUpdateManyWithoutFileNestedInput
   permissions?: Prisma.FilePermissionUncheckedUpdateManyWithoutFileNestedInput
   sharedLinks?: Prisma.SharedLinkUncheckedUpdateManyWithoutFileNestedInput
@@ -401,6 +417,7 @@ export type FileCreateManyInput = {
   userId: string
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
 }
 
 export type FileUpdateManyMutationInput = {
@@ -411,6 +428,7 @@ export type FileUpdateManyMutationInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type FileUncheckedUpdateManyInput = {
@@ -423,6 +441,7 @@ export type FileUncheckedUpdateManyInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type FileListRelationFilter = {
@@ -445,6 +464,7 @@ export type FileCountOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   folderId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type FileAvgOrderByAggregateInput = {
@@ -461,6 +481,7 @@ export type FileMaxOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   folderId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type FileMinOrderByAggregateInput = {
@@ -473,6 +494,7 @@ export type FileMinOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   folderId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type FileSumOrderByAggregateInput = {
@@ -647,6 +669,7 @@ export type FileCreateWithoutUserInput = {
   r2Key: string
   url?: string | null
   createdAt?: Date | string
+  status?: string | null
   folder?: Prisma.FolderCreateNestedOneWithoutFilesInput
   versions?: Prisma.FileVersionCreateNestedManyWithoutFileInput
   permissions?: Prisma.FilePermissionCreateNestedManyWithoutFileInput
@@ -663,6 +686,7 @@ export type FileUncheckedCreateWithoutUserInput = {
   url?: string | null
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
   versions?: Prisma.FileVersionUncheckedCreateNestedManyWithoutFileInput
   permissions?: Prisma.FilePermissionUncheckedCreateNestedManyWithoutFileInput
   sharedLinks?: Prisma.SharedLinkUncheckedCreateNestedManyWithoutFileInput
@@ -708,6 +732,7 @@ export type FileScalarWhereInput = {
   userId?: Prisma.StringFilter<"File"> | string
   folderId?: Prisma.StringNullableFilter<"File"> | string | null
   createdAt?: Prisma.DateTimeFilter<"File"> | Date | string
+  status?: Prisma.StringNullableFilter<"File"> | string | null
 }
 
 export type FileCreateWithoutFolderInput = {
@@ -718,6 +743,7 @@ export type FileCreateWithoutFolderInput = {
   r2Key: string
   url?: string | null
   createdAt?: Date | string
+  status?: string | null
   user: Prisma.UserCreateNestedOneWithoutFilesInput
   versions?: Prisma.FileVersionCreateNestedManyWithoutFileInput
   permissions?: Prisma.FilePermissionCreateNestedManyWithoutFileInput
@@ -734,6 +760,7 @@ export type FileUncheckedCreateWithoutFolderInput = {
   url?: string | null
   userId: string
   createdAt?: Date | string
+  status?: string | null
   versions?: Prisma.FileVersionUncheckedCreateNestedManyWithoutFileInput
   permissions?: Prisma.FilePermissionUncheckedCreateNestedManyWithoutFileInput
   sharedLinks?: Prisma.SharedLinkUncheckedCreateNestedManyWithoutFileInput
@@ -774,6 +801,7 @@ export type FileCreateWithoutVersionsInput = {
   r2Key: string
   url?: string | null
   createdAt?: Date | string
+  status?: string | null
   user: Prisma.UserCreateNestedOneWithoutFilesInput
   folder?: Prisma.FolderCreateNestedOneWithoutFilesInput
   permissions?: Prisma.FilePermissionCreateNestedManyWithoutFileInput
@@ -791,6 +819,7 @@ export type FileUncheckedCreateWithoutVersionsInput = {
   userId: string
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
   permissions?: Prisma.FilePermissionUncheckedCreateNestedManyWithoutFileInput
   sharedLinks?: Prisma.SharedLinkUncheckedCreateNestedManyWithoutFileInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutFileInput
@@ -820,6 +849,7 @@ export type FileUpdateWithoutVersionsInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutFilesNestedInput
   folder?: Prisma.FolderUpdateOneWithoutFilesNestedInput
   permissions?: Prisma.FilePermissionUpdateManyWithoutFileNestedInput
@@ -837,6 +867,7 @@ export type FileUncheckedUpdateWithoutVersionsInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   permissions?: Prisma.FilePermissionUncheckedUpdateManyWithoutFileNestedInput
   sharedLinks?: Prisma.SharedLinkUncheckedUpdateManyWithoutFileNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutFileNestedInput
@@ -850,6 +881,7 @@ export type FileCreateWithoutPermissionsInput = {
   r2Key: string
   url?: string | null
   createdAt?: Date | string
+  status?: string | null
   user: Prisma.UserCreateNestedOneWithoutFilesInput
   folder?: Prisma.FolderCreateNestedOneWithoutFilesInput
   versions?: Prisma.FileVersionCreateNestedManyWithoutFileInput
@@ -867,6 +899,7 @@ export type FileUncheckedCreateWithoutPermissionsInput = {
   userId: string
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
   versions?: Prisma.FileVersionUncheckedCreateNestedManyWithoutFileInput
   sharedLinks?: Prisma.SharedLinkUncheckedCreateNestedManyWithoutFileInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutFileInput
@@ -896,6 +929,7 @@ export type FileUpdateWithoutPermissionsInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutFilesNestedInput
   folder?: Prisma.FolderUpdateOneWithoutFilesNestedInput
   versions?: Prisma.FileVersionUpdateManyWithoutFileNestedInput
@@ -913,6 +947,7 @@ export type FileUncheckedUpdateWithoutPermissionsInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   versions?: Prisma.FileVersionUncheckedUpdateManyWithoutFileNestedInput
   sharedLinks?: Prisma.SharedLinkUncheckedUpdateManyWithoutFileNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutFileNestedInput
@@ -926,6 +961,7 @@ export type FileCreateWithoutSharedLinksInput = {
   r2Key: string
   url?: string | null
   createdAt?: Date | string
+  status?: string | null
   user: Prisma.UserCreateNestedOneWithoutFilesInput
   folder?: Prisma.FolderCreateNestedOneWithoutFilesInput
   versions?: Prisma.FileVersionCreateNestedManyWithoutFileInput
@@ -943,6 +979,7 @@ export type FileUncheckedCreateWithoutSharedLinksInput = {
   userId: string
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
   versions?: Prisma.FileVersionUncheckedCreateNestedManyWithoutFileInput
   permissions?: Prisma.FilePermissionUncheckedCreateNestedManyWithoutFileInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutFileInput
@@ -972,6 +1009,7 @@ export type FileUpdateWithoutSharedLinksInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutFilesNestedInput
   folder?: Prisma.FolderUpdateOneWithoutFilesNestedInput
   versions?: Prisma.FileVersionUpdateManyWithoutFileNestedInput
@@ -989,6 +1027,7 @@ export type FileUncheckedUpdateWithoutSharedLinksInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   versions?: Prisma.FileVersionUncheckedUpdateManyWithoutFileNestedInput
   permissions?: Prisma.FilePermissionUncheckedUpdateManyWithoutFileNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutFileNestedInput
@@ -1002,6 +1041,7 @@ export type FileCreateWithoutAuditLogsInput = {
   r2Key: string
   url?: string | null
   createdAt?: Date | string
+  status?: string | null
   user: Prisma.UserCreateNestedOneWithoutFilesInput
   folder?: Prisma.FolderCreateNestedOneWithoutFilesInput
   versions?: Prisma.FileVersionCreateNestedManyWithoutFileInput
@@ -1019,6 +1059,7 @@ export type FileUncheckedCreateWithoutAuditLogsInput = {
   userId: string
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
   versions?: Prisma.FileVersionUncheckedCreateNestedManyWithoutFileInput
   permissions?: Prisma.FilePermissionUncheckedCreateNestedManyWithoutFileInput
   sharedLinks?: Prisma.SharedLinkUncheckedCreateNestedManyWithoutFileInput
@@ -1048,6 +1089,7 @@ export type FileUpdateWithoutAuditLogsInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutFilesNestedInput
   folder?: Prisma.FolderUpdateOneWithoutFilesNestedInput
   versions?: Prisma.FileVersionUpdateManyWithoutFileNestedInput
@@ -1065,6 +1107,7 @@ export type FileUncheckedUpdateWithoutAuditLogsInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   versions?: Prisma.FileVersionUncheckedUpdateManyWithoutFileNestedInput
   permissions?: Prisma.FilePermissionUncheckedUpdateManyWithoutFileNestedInput
   sharedLinks?: Prisma.SharedLinkUncheckedUpdateManyWithoutFileNestedInput
@@ -1079,6 +1122,7 @@ export type FileCreateManyUserInput = {
   url?: string | null
   folderId?: string | null
   createdAt?: Date | string
+  status?: string | null
 }
 
 export type FileUpdateWithoutUserInput = {
@@ -1089,6 +1133,7 @@ export type FileUpdateWithoutUserInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   folder?: Prisma.FolderUpdateOneWithoutFilesNestedInput
   versions?: Prisma.FileVersionUpdateManyWithoutFileNestedInput
   permissions?: Prisma.FilePermissionUpdateManyWithoutFileNestedInput
@@ -1105,6 +1150,7 @@ export type FileUncheckedUpdateWithoutUserInput = {
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   versions?: Prisma.FileVersionUncheckedUpdateManyWithoutFileNestedInput
   permissions?: Prisma.FilePermissionUncheckedUpdateManyWithoutFileNestedInput
   sharedLinks?: Prisma.SharedLinkUncheckedUpdateManyWithoutFileNestedInput
@@ -1120,6 +1166,7 @@ export type FileUncheckedUpdateManyWithoutUserInput = {
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   folderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type FileCreateManyFolderInput = {
@@ -1131,6 +1178,7 @@ export type FileCreateManyFolderInput = {
   url?: string | null
   userId: string
   createdAt?: Date | string
+  status?: string | null
 }
 
 export type FileUpdateWithoutFolderInput = {
@@ -1141,6 +1189,7 @@ export type FileUpdateWithoutFolderInput = {
   r2Key?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutFilesNestedInput
   versions?: Prisma.FileVersionUpdateManyWithoutFileNestedInput
   permissions?: Prisma.FilePermissionUpdateManyWithoutFileNestedInput
@@ -1157,6 +1206,7 @@ export type FileUncheckedUpdateWithoutFolderInput = {
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   versions?: Prisma.FileVersionUncheckedUpdateManyWithoutFileNestedInput
   permissions?: Prisma.FilePermissionUncheckedUpdateManyWithoutFileNestedInput
   sharedLinks?: Prisma.SharedLinkUncheckedUpdateManyWithoutFileNestedInput
@@ -1172,6 +1222,7 @@ export type FileUncheckedUpdateManyWithoutFolderInput = {
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -1242,6 +1293,7 @@ export type FileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   userId?: boolean
   folderId?: boolean
   createdAt?: boolean
+  status?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   folder?: boolean | Prisma.File$folderArgs<ExtArgs>
   versions?: boolean | Prisma.File$versionsArgs<ExtArgs>
@@ -1261,6 +1313,7 @@ export type FileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   userId?: boolean
   folderId?: boolean
   createdAt?: boolean
+  status?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   folder?: boolean | Prisma.File$folderArgs<ExtArgs>
 }, ExtArgs["result"]["file"]>
@@ -1275,6 +1328,7 @@ export type FileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   userId?: boolean
   folderId?: boolean
   createdAt?: boolean
+  status?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   folder?: boolean | Prisma.File$folderArgs<ExtArgs>
 }, ExtArgs["result"]["file"]>
@@ -1289,9 +1343,10 @@ export type FileSelectScalar = {
   userId?: boolean
   folderId?: boolean
   createdAt?: boolean
+  status?: boolean
 }
 
-export type FileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "size" | "mimeType" | "r2Key" | "url" | "userId" | "folderId" | "createdAt", ExtArgs["result"]["file"]>
+export type FileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "size" | "mimeType" | "r2Key" | "url" | "userId" | "folderId" | "createdAt" | "status", ExtArgs["result"]["file"]>
 export type FileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   folder?: boolean | Prisma.File$folderArgs<ExtArgs>
@@ -1330,6 +1385,7 @@ export type $FilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     userId: string
     folderId: string | null
     createdAt: Date
+    status: string | null
   }, ExtArgs["result"]["file"]>
   composites: {}
 }
@@ -1768,6 +1824,7 @@ export interface FileFieldRefs {
   readonly userId: Prisma.FieldRef<"File", 'String'>
   readonly folderId: Prisma.FieldRef<"File", 'String'>
   readonly createdAt: Prisma.FieldRef<"File", 'DateTime'>
+  readonly status: Prisma.FieldRef<"File", 'String'>
 }
     
 

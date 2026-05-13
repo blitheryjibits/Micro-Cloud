@@ -26,6 +26,15 @@ export const FileAccessRole = {
 export type FileAccessRole = (typeof FileAccessRole)[keyof typeof FileAccessRole]
 
 
+export const UploadStatus = {
+  PENDING: 'PENDING',
+  SUCCESS: 'SUCCESS',
+  FAILED: 'FAILED'
+} as const
+
+export type UploadStatus = (typeof UploadStatus)[keyof typeof UploadStatus]
+
+
 export const AuditAction = {
   UPLOAD: 'UPLOAD',
   DELETE: 'DELETE',

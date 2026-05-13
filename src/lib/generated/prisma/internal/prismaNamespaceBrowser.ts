@@ -108,7 +108,8 @@ export const FileScalarFieldEnum = {
   url: 'url',
   userId: 'userId',
   folderId: 'folderId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  status: 'status'
 } as const
 
 export type FileScalarFieldEnum = (typeof FileScalarFieldEnum)[keyof typeof FileScalarFieldEnum]
