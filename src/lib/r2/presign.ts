@@ -1,12 +1,12 @@
 // src/lib/r2/presign.ts
-import { r2 } from "./r2";
+import { r2 } from "./client";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 export async function createPresignedUploadURL({
   key,
   contentType,
-  expiresIn = 120, // 2 minutes
+  expiresIn = 120, // default to 2 minutes
 }: {
   key: string;
   contentType: string;

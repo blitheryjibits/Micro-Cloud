@@ -1,0 +1,2 @@
+configure CORS rules for presigned urls
+see for more: https://developers.cloudflare.com/r2/api/s3/presigned-urls #best-practices

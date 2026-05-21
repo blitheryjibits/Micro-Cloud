@@ -1,6 +1,6 @@
 import { ApiError as NextApiError } from "next/dist/server/api-utils";
-import type { ErrorCode } from "@/server/core/errors/ErrorCodes";
-import type { StatusCodes } from "@/server/core/errors/ApiStatusCodes";
+import type { ErrorCode } from "@/lib/errors/ErrorCodes";
+import type { StatusCodes } from "@/lib/errors/ApiStatusCodes";
 
 /**
  * * Usage:

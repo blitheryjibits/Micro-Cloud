@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { createPresignedUploadURL } from "@/server/infrastructure/r2/presign";
+import { createPresignedUploadURL } from "@/lib/r2/presign";
 import { auth } from "@/lib/auth/better-auth";
-import { prisma } from "@/server/infrastructure/db/prisma/prisma";
+import { prisma } from "@/lib/db/prisma";
 
 export async function POST(req: Request) {
   const session = await auth.api.getSession();
