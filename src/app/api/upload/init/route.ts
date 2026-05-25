@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createPresignedUploadURL } from "@/lib/r2/presign";
-import { auth } from "@/lib/auth/better-auth";
+import { auth } from "@/lib/auth/auth";
 import { prisma } from "@/lib/db/prisma";
 
 export async function POST(req: Request) {
