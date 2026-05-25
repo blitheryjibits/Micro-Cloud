@@ -1,2 +1,10 @@
 configure CORS rules for presigned urls
 see for more: https://developers.cloudflare.com/r2/api/s3/presigned-urls #best-practices
+
+callbackURL in server>actions>auth>sign-up.ts
+
+- should it be a nextResponse or use nextRouter or just a hardcoded url string?
+
+password hashing is done by Better-Auth automatically using scrypt algorithm
+
+add logout to auth-action and page.tsx
