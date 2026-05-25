@@ -6,7 +6,8 @@ import {
   Playfair_Display,
 } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
+import { Toaster, toast } from "sonner";
 
 const playfairDisplayHeading = Playfair_Display({
   subsets: ["latin"],
@@ -48,7 +49,10 @@ export default function RootLayout({
         playfairDisplayHeading.variable,
       )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Toaster position="bottom-center" />
+      </body>
     </html>
   );
 }
