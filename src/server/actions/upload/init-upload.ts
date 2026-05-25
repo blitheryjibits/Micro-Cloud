@@ -18,27 +18,36 @@ export async function initUploadAction({
 
   const key = `${user.id}/${randomUUID()}`;
 
-  // 1. Create DB record
-  const file = await prisma.file.create({
-    data: {
-      userId: user.id,
-      r2Key: key,
-      mimeType,
-      size,
-      name,
-      status: "PENDING",
-    },
-  });
+  try {
+    // 1. Create DB record
+    const file = await prisma.file.create({
+      data: {
+        userId: user.id,
+        r2Key: key,
+        mimeType,
+        size,
+        name,
+        status: "PENDING",
+      },
+    });
 
-  // 2. Generate presigned URL
-  const { url } = await createPresignedUploadURL({
-    key,
-    contentType: mimeType,
-  });
+    // 2. Generate presigned URL
+    const { url } = await createPresignedUploadURL({
+      key,
+      contentType: mimeType,
+    });
 
-  return {
-    uploadUrl: url,
-    fileId: file.id,
-    key,
-  };
+    return {
+      success: true,
+      data: {
+        uploadUrl: url,
+        fileId: file.id,
+        key,
+        name,
+      },
+    };
+  } catch (error) {
+    console.error("Error initializing upload:", error);
+    return { success: false, error: "Failed to initialize upload" };
+  }
 }
