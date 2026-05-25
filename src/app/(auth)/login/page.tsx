@@ -31,7 +31,7 @@ export default function LoginPage() {
       if (result.error) {
         form.setError("email", {
           type: "manual",
-          message: result.error.message,
+          message: result.error?.message,
         });
         return;
       }
