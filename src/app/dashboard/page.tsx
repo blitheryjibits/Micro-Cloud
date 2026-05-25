@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth/auth-client";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -36,12 +37,19 @@ export default function DashboardPage() {
           >
             My Files
           </a>
-          <a
+          <Link
+            href="/dashboard/upload?modal=true"
+            scroll={false}
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          >
+            Upload Files
+          </Link>
+          {/* <a
             className="text-gray-700 hover:text-blue-600"
             href="/dashboard/upload"
           >
             Upload
-          </a>
+          </a> */}
           <a className="text-gray-700 hover:text-blue-600" href="/settings">
             Settings
           </a>
